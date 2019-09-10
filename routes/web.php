@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/about', function () {
+    return "Esta aplicação é a primeira do curso de laraval.";
+});
+
+Route::get('/phpinfo', function () {
+    phpinfo();
+});
+
+Route::get('/helloworld',"TesteController@index" );
+
+Route::get('/helloworld/{nome}/{idade}',"TesteController@index2" );
