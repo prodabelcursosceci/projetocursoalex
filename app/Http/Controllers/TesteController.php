@@ -3,16 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class TesteController extends Controller
 {
     public function index(Request $req)
     {
-        $nome = $req->nome;
-        //dd($req);
-        echo "Hello wooorld!, $nome";
-        return view('welcome'); 
+        
+       $validador = Validator::make($req->all(),[
+           'nome'=>'required|max:10|alpha|ends_with:a'
+       ]);
 
+       if($validador->fails()){
+           $errors = $validador->errors()->all();
+       }
+
+       $nome = $req->nome;
+       $ole = 'numdo!';
+        //dd($req);
+        echo "Hello wooorld!, $nome <br>";
+        $ola = 'sdssdfsdf';
+        return view('index',compact(['nome','ola', 'errors'])); 
+    }
+
+    public function indexPost(Request $req){
+
+        return "Postei $req->telefone";
     }
 
     public function index2($nome, $idade=mull)

@@ -26,3 +26,11 @@ Route::get('/phpinfo', function () {
 Route::get('/helloworld',"TesteController@index" );
 
 Route::get('/helloworld/{nome}/{idade}',"TesteController@index2" );
+
+
+Route::get('/index1',"TesteController@index" );
+Route::post('/index1',"TesteController@indexPost" );
+
+
+//Route::redirect('/welcome','/welcome');
+
