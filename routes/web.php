@@ -28,9 +28,18 @@ Route::get('/helloworld',"TesteController@index" );
 Route::get('/helloworld/{nome}/{idade}',"TesteController@index2" );
 
 
-Route::get('/index1',"TesteController@index" );
-Route::post('/index1',"TesteController@indexPost" );
+
+//Route::middleware('CheckAge')->group(function(){
+    Route::get('/index1',"TesteController@index" );
+    Route::post('/index1',"TesteController@indexPost" );
+  
+//}); 
+
 
 
 //Route::redirect('/welcome','/welcome');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -7,6 +7,13 @@ use Illuminate\Support\Facades\Validator;
 
 class TesteController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('CheckAge');    
+        $this->middleware('throttle:100,1');
+    }
+
+
     public function index(Request $req)
     {
         
